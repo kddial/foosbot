@@ -1,6 +1,6 @@
-# Foosbot
+# Pongbot
 
-Foosbot is a Slack bot for recording foosball results and ranking players into a league. Players play pick-up games of first to 10, in any combination of 1v1 or 2v2 format and the bot will maintain a ranking order for the individual players.
+Pongbot is a Slack bot for recording ping pong / table tennis results and ranking players into a league. Players play pick-up games of first to 11 or 21, in any combination of 1v1 or 2v2 format and the bot will maintain a ranking order for the individual players.
 
 # Installation
 
@@ -43,3 +43,9 @@ which once you've played enough games will return something like:
 Technically the ranking algorithm assumes that a foosball game is a series of Bernoulli trials, with a probability determined by the difference in skill between two players. Given a set of matches, it tries to find a set of skill ratings for all players involved which maximises the likelihood of the observed results. To make the minimisation fast this is done with Stochastic Gradient Descent implemented with Theano.
 
 To increase the quality of the rankings, players are required to have played at least 3 games before they are ranked. Old players are removed after a grace period of 150 days.
+
+# Deploying to PWS
+Set set-health-check to none using "-u none"
+```
+cf push -m 64M pongbot -u none
+```
