@@ -47,5 +47,5 @@ To increase the quality of the rankings, players are required to have played at 
 # Deploying to PWS
 Set set-health-check to none using "-u none"
 ```
-cf push -m 64M pongbot -u none
+cf push -m 512M pongbot -u none
 ```
